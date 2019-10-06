@@ -2,6 +2,7 @@ package com.example.librarytestapplication.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.librarytestapplication.R
 import com.example.librarytestapplication.model.MainCell
@@ -23,8 +24,5 @@ class MainActivity : AppCompatActivity() {
         TitleListRecyclerView.adapter = MainListAdapter(this, titleList)
         TitleListRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        TitleListRecyclerView.also {
-
-        }
     }
 }
