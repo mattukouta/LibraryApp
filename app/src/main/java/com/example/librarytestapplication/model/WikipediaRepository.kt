@@ -7,12 +7,21 @@ import retrofit2.Response
 
 class WikipediaRepository {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://wikipedia.simpleapi.net/api?keyword=")
+        .baseUrl("http://wikipedia.simpleapi.net/")
         .addConverterFactory(SimpleXmlConverterFactory.create())
         .build()
 
     val wikipediaService: CreateWikipediaService = retrofit.create(CreateWikipediaService::class.java)
 
-    suspend fun getWikipediaResultList(keyWord : String) : Response<dataResults> =
+    suspend fun getWikipediaResultList(keyWord : String) : Response<dataBody> =
             wikipediaService.getWikipediaSearchResult(keyWord)
+
+    //singletonでRepositoryインスタンスを返すFactory
+    companion object Factory {
+
+        val instance: WikipediaRepository
+            @Synchronized get() {
+                return WikipediaRepository()
+            }
+    }
 }
