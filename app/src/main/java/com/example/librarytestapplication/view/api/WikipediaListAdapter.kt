@@ -1,11 +1,13 @@
 package com.example.librarytestapplication.view.api
 
 import android.content.Context
-import android.util.Log
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.librarytestapplication.R
 import com.example.librarytestapplication.model.WikipediaList
@@ -18,6 +20,7 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
     class WikipediaListViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.wikipediaTitle)
         val body = view.findViewById<TextView>(R.id.wikipediaBody)
+        val constraintLayout = view.findViewById<ConstraintLayout>(R.id.cell)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WikipediaListViewHolder {
@@ -35,27 +38,13 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: WikipediaListViewHolder, position: Int) {
         holder.title.text = wikipediaList.title[position]
         holder.body.text = wikipediaList.body[position]
-//        holder.title.text = titleList[position].title
-//
-//        holder.title.setOnClickListener {
-//            Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
-//            functionIntent(position)
-//
-//        }
 
+        holder.constraintLayout.setOnClickListener {
+            /**
+             * 押した部分のWikipediaページを表示
+             */
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(wikipediaList.url[position]))
+            context.startActivity(intent)
+        }
     }
-//
-//    fun functionIntent(position: Int){
-//
-//        val intent =
-//            when(position){
-//                0 -> Intent(context, APIActivity::class.java)
-//                else -> Intent(context, MainActivity::class.java)
-//            }
-//
-//        intent.putExtra(KeyStringUntils().MAIN_LIST_KEY, position)
-//        context.startActivity(intent)
-//    }
-
-
 }
