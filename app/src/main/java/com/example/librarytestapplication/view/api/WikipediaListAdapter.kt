@@ -17,6 +17,7 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
 
     class WikipediaListViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.wikipediaTitle)
+        val body = view.findViewById<TextView>(R.id.wikipediaBody)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WikipediaListViewHolder {
@@ -33,6 +34,7 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: WikipediaListViewHolder, position: Int) {
         holder.title.text = wikipediaList.title[position]
+        holder.body.text = wikipediaList.body[position]
 //        holder.title.text = titleList[position].title
 //
 //        holder.title.setOnClickListener {

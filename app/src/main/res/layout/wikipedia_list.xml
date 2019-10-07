@@ -10,9 +10,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/wikipediaTitle"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="16dp" android:layout_marginRight="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp" android:textSize="14sp"/>
+            android:textSize="18sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/wikipediaBody"
+            app:layout_constraintStart_toStartOf="@+id/wikipediaTitle"
+            app:layout_constraintEnd_toEndOf="@+id/wikipediaTitle" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/wikipediaTitle" android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

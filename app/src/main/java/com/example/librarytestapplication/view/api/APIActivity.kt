@@ -82,35 +82,6 @@ class APIActivity : AppCompatActivity() {
                 Log.d("check", "request is fail")
             }
         }
-
-//        GlobalScope.launch {
-//            try {
-//                val request = repository.getWikipediaResultList("hoge")
-//                Log.d("check", "request")
-//
-//                if (request.isSuccessful) {
-//                    val results = request.body()?.results
-//                    val wikipediaList = WikipediaList.Companion
-//                    if (results != null) {
-//                        for (result in results) {
-//                            wikipediaList.body.add(result.result.language)
-//                            wikipediaList.body.add(result.result.id.toString())
-//                            wikipediaList.body.add(result.result.url)
-//                            wikipediaList.body.add(result.result.title)
-//                            wikipediaList.body.add(result.result.title)
-//                            wikipediaList.body.add(result.result.length)
-//                            wikipediaList.body.add(result.result.redirect)
-//                            wikipediaList.body.add(result.result.strict)
-//                            wikipediaList.body.add(result.result.datetime)
-//                            Log.d("check", result.result.title)
-//                        }
-//                        showAdapter()
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                e.stackTrace
-//            }
-//        }
     }
 
     fun showAdapter() {
