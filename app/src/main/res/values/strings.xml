@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LibraryTestApplication</string>
+    <string name="api_search_button">検索</string>
+    <string name="keyword">キーワード</string>
 </resources>

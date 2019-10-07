@@ -36,15 +36,16 @@ dependencies {
 
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.3.0'
 
     // gson
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // Android Architecture Components
-//    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-//    implementation 'androidx.lifecycle:lifecycle-runtime:2.1.0'
-//    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.1.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.1.0'
 
     //viewmodel-ktx viewModelScopeを使うため
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0"
