@@ -9,13 +9,16 @@ import com.example.librarytestapplication.model.dataElement
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class APIPresenter(private val view : APIContract.View) : APIContract.Presenter {
+class APIPresenter(private val view: APIContract.View) : APIContract.Presenter {
     override fun start() {
     }
 
-    override fun editTextCheck(editText : Editable){
-        if(editText.isNotEmpty()) {
+    override fun editTextCheck(editText: Editable) {
+        if (editText.isNotEmpty()) {
             val keyword = editText.toString()
+
+            view.showProgressBar()
+
             getWikipediaRequest(keyword)
         } else {
             view.showEmptyMessage()
@@ -50,7 +53,7 @@ class APIPresenter(private val view : APIContract.View) : APIContract.Presenter 
         wikipediaList.datetime.add(result.datetime)
     }
 
-    override fun getWikipediaRequest(keyword : String) {
+    override fun getWikipediaRequest(keyword: String) {
         val repository = WikipediaRepository.instance
 
         val handler = Handler()
@@ -61,18 +64,18 @@ class APIPresenter(private val view : APIContract.View) : APIContract.Presenter 
             if (request.isSuccessful) {
                 val results = request.body()?.result
 
-               initWikipediaList()
+                initWikipediaList()
 
                 if (results != null) {
                     for (result in results) {
                         addWikipediaList(result)
                     }
 
-                    // Handlerを使用してメイン(UI)スレッドに処理を依頼する
-                    handler.post {
-                        view.showAdapter()
-                    }
-
+//                    // Handlerを使用してメイン(UI)スレッドに処理を依頼する
+//                    handler.post {
+//                        view.showAdapter()
+//                        view.hideProgressBar()
+//                    }
                 } else {
                     Log.d("check", "request is null")
                 }

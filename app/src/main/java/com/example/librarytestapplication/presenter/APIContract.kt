@@ -6,10 +6,12 @@ import com.example.librarytestapplication.BaseView
 import com.example.librarytestapplication.model.dataElement
 
 interface APIContract {
-    interface View : BaseView<Presenter>{
+    interface View : BaseView<Presenter> {
 
         fun showAdapter()
         fun showEmptyMessage()
+        fun showProgressBar()
+        fun hideProgressBar()
     }
     interface Presenter : BasePresenter {
 

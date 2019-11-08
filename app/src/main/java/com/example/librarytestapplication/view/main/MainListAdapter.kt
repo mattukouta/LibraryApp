@@ -13,9 +13,7 @@ import com.example.librarytestapplication.model.MainCell
 import com.example.librarytestapplication.util.KeyStringUntils
 import com.example.librarytestapplication.view.api.APIActivity
 
-
-
-class MainListAdapter(private val context: Context, private val titleList : List<MainCell>) : RecyclerView.Adapter<MainListAdapter.MainListViewHolder>() {
+class MainListAdapter(private val context: Context, private val titleList: List<MainCell>) : RecyclerView.Adapter<MainListAdapter.MainListViewHolder>() {
 
     lateinit var view: View
 
@@ -24,7 +22,7 @@ class MainListAdapter(private val context: Context, private val titleList : List
      */
 //    lateinit var listener : View.OnClickListener
 
-    class MainListViewHolder(view : View) : RecyclerView.ViewHolder(view) {
+    class MainListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.functionTitle)
     }
 
@@ -35,7 +33,6 @@ class MainListAdapter(private val context: Context, private val titleList : List
             false
         )
         return MainListViewHolder(view)
-
     }
 
     override fun getItemCount(): Int = titleList.size
@@ -46,7 +43,6 @@ class MainListAdapter(private val context: Context, private val titleList : List
         holder.title.setOnClickListener {
             Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
             functionIntent(position)
-
         }
 
         /**
@@ -55,8 +51,6 @@ class MainListAdapter(private val context: Context, private val titleList : List
 //        holder.title.setOnClickListener { view ->
 //            listener.onClick(view)
 //        }
-
-
     }
 
     /**
@@ -66,10 +60,10 @@ class MainListAdapter(private val context: Context, private val titleList : List
 //        this.listener = listener
 //    }
 
-    fun functionIntent(position: Int){
+    fun functionIntent(position: Int) {
 
         val intent =
-            when(position){
+            when (position) {
                 0 -> Intent(context, APIActivity::class.java)
                 else -> Intent(context, MainActivity::class.java)
             }
@@ -77,6 +71,4 @@ class MainListAdapter(private val context: Context, private val titleList : List
         intent.putExtra(KeyStringUntils().MAIN_LIST_KEY, position)
         context.startActivity(intent)
     }
-
-
 }

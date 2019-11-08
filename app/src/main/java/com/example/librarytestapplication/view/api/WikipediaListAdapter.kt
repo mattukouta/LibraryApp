@@ -17,7 +17,7 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
     lateinit var view: View
     val wikipediaList: WikipediaList.Companion = WikipediaList
 
-    class WikipediaListViewHolder(view : View) : RecyclerView.ViewHolder(view) {
+    class WikipediaListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title = view.findViewById<TextView>(R.id.wikipediaTitle)
         val body = view.findViewById<TextView>(R.id.wikipediaBody)
         val constraintLayout = view.findViewById<ConstraintLayout>(R.id.cell)
@@ -30,7 +30,6 @@ class WikipediaListAdapter(private val context: Context) : RecyclerView.Adapter<
             false
         )
         return WikipediaListViewHolder(view)
-
     }
 
     override fun getItemCount(): Int = WikipediaList.title.size
