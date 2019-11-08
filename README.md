@@ -1,4 +1,4 @@
-# LibraryApp
+# LibraryApp [![Build Status](https://app.bitrise.io/app/5710371c1ac541d2/status.svg?token=Z7Wl5-qnR9QlpIC1EJfHOw&branch=develop)](https://app.bitrise.io/app/5710371c1ac541d2)
 - 個人的に「ライブラリに触れられていないなと感じたので，試したいものとかを実装してみよう」がテーマです。
 - 随時更新していきます。
 
